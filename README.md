@@ -17,10 +17,10 @@ cil apenas criar variáveis soltas no main, como `String nomeAna = "Ana"` e `dou
 
 
 Criamos uma classe, pois dentro dessa classe ficará os atributos do usuário.
-Posso criar vários usuários com caracteristicas diferentes.
-As classes permitem estruturar o programa, encapsular dados e criar definicoes,
-Se tivesse 1m de usuários, as classes ajudariam a manter a ordem, pois dentro dela estaria a mesma estrutura para cada usuário. 
-Sem precisar reescrever a mesma estrutura várias vezes 
+Posso criar vários usuários com características diferentes.
+As classes permitem estruturar o programa, encapsular dados e criar definições,
+Se tivesse 1m de usuários, as classes ajudariam a manter a ordem, pois dentro dela, estaria a mesma estrutura para cada usuário. 
+Sem precisar reescrever a mesma estrutura várias vezes.
 
 
 
@@ -42,7 +42,7 @@ Nome\(\)` são `public`. Por que é seguro deixar o `get` público, mas perigoso
 original público?
 
 
-É seguro deixar os métodos `getSaldo()` e `getNome()` públicos porque eles permitem apenas sem validações ou regras de segurança
+É seguro deixar os métodos `getSaldo()` e `getNome()` públicos porque eles permitem apenas sem validações ou regras de segurança.
 Por isso, utilizamos o encapsulamento, com atributos `private` e métodos `public`, para proteger os dados e controlar o acesso a eles.
 
  
@@ -54,7 +54,6 @@ Já deixar os atributos públicos seria perigoso, pois qualquer parte do código
 > 1. Nós **não** criamos o método `setModelo\(\)`.
 > 2. O `setPlaca\(\)` foi criado como **privado**, e criamos um método público chamado `atualiza
 rPlaca\(\)` para acessá-lo.
->
 > Pensando no mundo real e no Clean Code: Por que é um erro gravíssimo clicar em 'Gerar Getters 
 e Setters para tudo' automaticamente na sua IDE? Como as nossas duas decisões acima protegem o s
 istema de fraudes e falhas de lógica?"
