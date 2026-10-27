@@ -1,6 +1,6 @@
  Projeto FiapRide - Sofia F. L. Oliveira
 ## 
-Informações do Aluno- **Nome:**  Sofia F. L. Oliveira - **RM:** 567824 **Turma:** 1CCPB - **Curso:** Ciência da Computação- **GitHub:** sofia oliveira 
+Informações do Aluno- **Nome:**  Sofia F. L. Oliveira - **RM:** 567824 **Turma:** 2CCPR  - **Curso:** Ciência da Computação- **GitHub:** sofia oliveira 
 ## 
 Descrição do Projeto
 Este projeto é resultado do aprendizado adquirido ao longo das aulas 1 a 9 de Programação Orientada a Objetos (POO). 
