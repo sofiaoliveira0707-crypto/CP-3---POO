@@ -41,6 +41,7 @@ Isso torna o sistema mais seguro e confiável.
 Nome\(\)` são `public`. Por que é seguro deixar o `get` público, mas perigoso deixar o atributo 
 original público?
 
+
 É seguro deixar os métodos `getSaldo()` e `getNome()` públicos porque eles permitem apenas sem validações ou regras de segurança
 Por isso, utilizamos o encapsulamento, com atributos `private` e métodos `public`, para proteger os dados e controlar o acesso a eles.
 
@@ -57,13 +58,11 @@ rPlaca\(\)` para acessá-lo.
 > Pensando no mundo real e no Clean Code: Por que é um erro gravíssimo clicar em 'Gerar Getters 
 e Setters para tudo' automaticamente na sua IDE? Como as nossas duas decisões acima protegem o s
 istema de fraudes e falhas de lógica?"
+
+Não é viável colocar tudo como get ou set, pois isso poderia deixar o código inseguro e com falhas. 
+Podendo fazer com que haja alterações e permissões para atributos que, de fato, não possuem. Comprometendo assim
+a integridade e segurança dos dados e do codigo.
  
-_Dica: Pense sobre o que pode ou não mudar fisicamente em um carro, e a diferença entre "alterar 
-um dado no banco" e "executar um processo real no Detran"_"
- 
-**Sua Resposta:**
-[Escreva sua reflexão aqui]
- --
  
 ### Aula 5 - Associação
  
@@ -71,14 +70,9 @@ um dado no banco" e "executar um processo real no Detran"_"
 te`\). Se o nosso resumo só precisa imprimir o nome da pessoa, não seria mais fácil e mais leve 
 pedir apenas a String do nome no construtor da Viagem \(`String nomeDoPassageiro`\) em vez do ob
 jeto todo?"
- 
-_Pense nas regras de negócio: O que acontece na hora que a Viagem acaba e o sistema precisa desc
-ontar o saldo? Se a Viagem tiver apenas a String "Ana Silva", ela consegue mexer no dinheiro del
-a? _"
- 
-**Sua Resposta:**
-[Escreva sua reflexão aqui]
- --
+
+É necessário passar o objeto inteiro, pois o sistema precisa acessar outras informações do passageiro, como o saldo disponível, para verificar se ele tem dinheiro suficiente para realizar a viagem. Se passássemos apenas uma `String` com o nome, teríamos somente essa informação, dificultando o acesso aos outros dados e comportamentos do passageiro. 
+Dessa forma, utilizar o objeto inteiro facilita a comunicação entre as classes e permite validar as regras de negócio do sistema.
  
 ### Aula 6 - Herança
  
@@ -89,22 +83,20 @@ aca\(\)`.
  
 Por que o Java não deixa a filha alterar as variáveis privadas da mãe diretamente? Qual o princí
 pio das aulas passadas que isso está protegendo?""
- 
-**Sua Resposta:**
-[Escreva sua reflexão aqui]
- --
+
+Não é permitido deixar a filha alterar as variáveis privadas pelo principio do encapsulamento, que controla como os dados podem ser
+alterados e modificados. Por isso, é necessário utilizar o construtor super() ou um método público, como set, para acessar ou alterar esses valores de forma controlada, respeitando as regras definidas na classe.
  
 ### Aula 7 - Polimorfismo
  
-**Pergunta:** "No nosso loop `for \(Veiculo veiculo : frota\)`, a variável `veiculo` é do tipo g
-enérico `Veiculo`. Se esquecêssemos de criar o método `calcularAutonomia\(\)` lá na classe mãe `
+**Pergunta:** "No nosso loop `for \(Veiculo veiculo : frota\)`, a variável `veiculo` é do tipo 
+genérico `Veiculo`. Se esquecêssemos de criar o método `calcularAutonomia\(\)` lá na classe mãe `
 Veiculo`, nós conseguiríamos chamá-lo dentro do loop, mesmo sabendo que ele existe dentro do `Ca
 rro` e da `Moto`? Por que o contrato precisa existir na base da hierarquia?"
- 
-**Sua Resposta:**
-[Escreva sua reflexão aqui]
- --
- 
+
+Não seria possível, precisa existir na base da hierarquia, pois leva a herança da classe mãe para a classe fillha. 
+O que permite o polimorfismo, fazendo com que cada tipo execute sua versao com seus métodos.
+
 ### Aula 8 - Classes Abstratas
  
 **Pergunta:** "Pense no mundo real: Faz sentido existir um objeto que é APENAS 'Veículo' sem ser 
@@ -112,13 +104,14 @@ um tipo específico? Você já entrou em uma concessionária e comprou "um veíc
 r carro, moto, caminhão ou nada disso?
  
 Por que, então, no código, precisamos EXPLICITAMENTE dizer ao Java que `Veiculo` é `abstract`? P
-or que ele não deduz isso sozinho? 
- 
+or que ele não deduz isso sozinho?  
 Pense: Se esquecermos de colocar `abstract`, qual o risco que corremos? Alguém pode criar `new V
 eiculo\(\)` e quebrar a lógica do nosso sistema?"
- 
-**Sua Resposta:**
-[Escreva sua reflexão aqui]
+
+Precisamos dizer que é abstract para indicar que ela é uma classe base, que serve como modelo para as classes filha
+Se nao colocarmos abstract, ele podera ser lido como algo alterável, o que vai gerar erro no codigo e na seguranca, um veículo genérico pode não ter comportamentos específicos definidos, como calcular sua autonomia
+
+
  --
  
 ### Aula 9 - Interfaces
@@ -127,22 +120,33 @@ eiculo\(\)` e quebrar a lógica do nosso sistema?"
 Pense: Se `CarroEletrico` pudesse herdar de `Veiculo` E de `Bateria` ao mesmo tempo \(herança mú
 ltipla\), o que aconteceria se AMBAS as mães tivessem um método chamado `ligar\(\)`? 
 Como as interfaces resolvem esse problema? "
-**Sua Resposta:**
-[Escreva sua reflexão aqui]--
+
+Através do método implements, seria possivel definir quais das partes iria ser ligado,
+através das interfaces que permitem implementar atraves do implements.
+
 ## 
 Desafios Técnicos Implementados
 ### Desafio Pessoal (Seu Projeto)
 **Qual foi o domínio que você escolheu para seu projeto pessoal?**
-[Responda aqui: ex: Sistema de Biblioteca, Playlist de Música, PetShop, etc.]
+Caderno, Caderno universitário.
+
 **Quais classes você criou?**
-[Liste suas classes: ex: Livro, Usuario, Emprestimo]
+Classe Obejto, Caderno, Caderno Universitario.
+
 **Qual foi o maior desafio técnico que você enfrentou?**
-[Descreva o desafio e como você o resolveu - 10-15 linhas]--
+
+Pegar o que foi passado em aula e trazer para o meu código, de modo que ele funcionasse do jeito que deveria e respeitando as boas práticas do clean code.
+Também, começar a compreender JAVA e suas regras. 
+
 ## 
 Conclusão
 **O que você aprendeu nestas 9 aulas?**
-[Reflexão final - conte sobre sua jornada de aprendizado]
+Aprendi que estudar pós aula, estudar os códigos e a teoria é essencial para um bom aprendizado e um aprendiado completo.
+Implementar para o meu objeto também foi ótimo para fixar o conteúdo, por mais que eu ainda ache complicado, por estar sendo meu primeiro contato com a matéria
+
+
 **Qual conceito foi mais difícil de entender?**
-[Qual conceito e como você superou a dificuldade?]
+Para mim, classes abstratas
+
 **O que você melhoraria no seu projeto se pudesse refazer?**
-[Reflexão crítica sobre seu próprio código]
+teria feito sempre pós aula o meu objeto, e não esperado passar a aula pra fazer
